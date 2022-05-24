@@ -29,8 +29,13 @@
     </delete>
 
     <update id="update" parameterType="board">
-        update board_table set boardContents = #{boardContents} where id = #{id}
+        update board_table set boardContents = #{boardContents} ,boardTitle = #{boardTitle} where id = #{id}
     </update>
+
+    <insert id="saveFile" parameterType="board">
+        insert into board_table(boardTitle,boardWriter,boardPassword,boardContents,boardCreatedDate,boardFileName)
+        values (#{boardTitle},#{boardWriter},#{boardPassword},#{boardContents},now(),#{boardFileName})
+    </insert>
 </mapper>
 
 

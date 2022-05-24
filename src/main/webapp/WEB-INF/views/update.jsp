@@ -15,7 +15,8 @@
 <jsp:include page="layout/header.jsp" flush="false"></jsp:include>
     <h2>수정할 내용 입력</h2>
     <form action="/update/request?id=${boardDTO.id}" method="post">
-        <textarea class="form-control mb-2" name="boardContents" rows="5" cols="10" placeholder="내용"></textarea>
+        <input type="text" name="boardTitle" value="${boardDTO.boardTitle}">
+        <textarea class="form-control" name="boardContents" rows="5" cols="10">${boardDTO.boardContents}</textarea>
         <input class="btn btn-primary" type="submit" value="제출">
     </form>
 </body>

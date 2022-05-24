@@ -29,6 +29,7 @@
                 <th>작성자</th>
                 <th>조회수</th>
                 <th>작성시간</th>
+                <th>이미지</th>
             </tr>
             <tr>
                 <td>${boardList.id}</td>
@@ -36,10 +37,11 @@
                 <td>${boardList.boardWriter}</td>
                 <td>${boardList.boardHits}</td>
                 <td>${boardList.boardCreatedDate}</td>
+                <th><img src="${pageContext.request.contextPath}/upload/${boardList.boardFileName}" alt="" height="100" width="100"></th>
             </tr>
             <tr>
                 <th>내용</th>
-                <td colspan="4">
+                <td colspan="5">
                     ${boardList.boardContents}
                 </td>
             </tr>

@@ -22,6 +22,7 @@
     <div class="container">
         <div class="form-control">index.jsp</div>
         <button class="btn btn-primary" onclick="save()">글 작성</button>
+        <button class="btn btn-primary" onclick="saveFile()">글 작성(파일)</button>
         <button class="btn btn-primary" onclick="findAll()">글 목록</button>
     </div>
     <!-- 회원가입 : /member-save => /member/save , 글쓰기 : /board-save => /board/save -->
@@ -32,6 +33,9 @@
     }
     const findAll = () => {
         location.href = "/findAll"
+    }
+    const saveFile = () => {
+        location.href = "/board/saveFile";
     }
 </script>
 </html>

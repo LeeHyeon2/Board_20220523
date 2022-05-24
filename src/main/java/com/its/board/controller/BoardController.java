@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -64,7 +65,7 @@ public class BoardController {
     public String update(@ModelAttribute BoardDTO  boardDTO,Model model){
         BoardDTO login = boardService.login(boardDTO);
         if(login != null){
-            model.addAttribute("boardDTO",boardDTO);
+            model.addAttribute("boardDTO",login);
             return "update";
         }else{
             return "redirect:/findAll";
@@ -94,6 +95,17 @@ public class BoardController {
     @PostMapping("/update/request")
     public String updateRequest(@ModelAttribute BoardDTO boardDTO){
         boardService.update(boardDTO);
+        return "redirect:/detail?id=" + boardDTO.getId();
+    }
+
+    @GetMapping("/board/saveFile")
+    public String saveFileForm(){
+        return "board/saveFile";
+    }
+
+    @PostMapping("/board/saveFile")
+    public String saveFile(@ModelAttribute BoardDTO boardDTO) throws IOException {
+        boardService.saveFile(boardDTO);
         return "redirect:/findAll";
     }
 }

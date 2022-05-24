@@ -14,7 +14,8 @@
 <jsp:include page="layout/header.jsp" flush="false"></jsp:include>
     <h2>passwordCheck.jsp</h2>
     <form action="${Link}" method="post" name="loginForm">
-        <input type="password" name="boardPassword" id="password" placeholder="비밀번호 입력.">
+        <label for="password">비밀번호를 입력해주세요</label>
+        <input type="password" name="boardPassword" id="password" placeholder="비밀번호">
         <input class="btn btn-primary" type="button" onclick="login()" value="전송">
     </form>
 
@@ -27,6 +28,7 @@
             loginForm.submit();
         }else{
             alert("비밀번호가 틀립니다.")
+            location.href = "/findAll"
         }
     }
 </script>
