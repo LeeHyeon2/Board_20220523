@@ -36,6 +36,18 @@
         insert into board_table(boardTitle,boardWriter,boardPassword,boardContents,boardCreatedDate,boardFileName)
         values (#{boardTitle},#{boardWriter},#{boardPassword},#{boardContents},now(),#{boardFileName})
     </insert>
+
+    <select id="pagingList" parameterType="java.util.HashMap" resultType="board">
+        select * from board_table order by id desc limit #{start}, #{limit}
+    </select>
+
+    <select id="count" resultType="int">
+        select count(id) from board_table
+    </select>
+
+    <select id="search" parameterType="java.util.HashMap" resultType="board">
+        select * from board_table where ${type} like concat('%', #{q}, '%') order by id desc;
+    </select>
 </mapper>
 
 

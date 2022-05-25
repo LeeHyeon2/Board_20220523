@@ -24,6 +24,7 @@
         <button class="btn btn-primary" onclick="save()">글 작성</button>
         <button class="btn btn-primary" onclick="saveFile()">글 작성(파일)</button>
         <button class="btn btn-primary" onclick="findAll()">글 목록</button>
+        <button class="btn btn-outline-success" onclick="paging()">페이징목록</button>
     </div>
     <!-- 회원가입 : /member-save => /member/save , 글쓰기 : /board-save => /board/save -->
 </body>
@@ -36,6 +37,9 @@
     }
     const saveFile = () => {
         location.href = "/board/saveFile";
+    }
+    const paging = () => {
+        location.href = "/board/paging";
     }
 </script>
 </html>
